@@ -18,4 +18,10 @@
             return $thearray;
         }
     }
+    
+	session_start();
+    
+    $_SESSION['user_id']= (int)1;
+    
+    $db = new mysqli('fdb7.biz.nf', '1990406_drive', 'drivesafe123db', '1990406_drive', 3306);
 ?>

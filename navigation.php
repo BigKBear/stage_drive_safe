@@ -1,5 +1,5 @@
 <?
-$menu = array (
+/*$menu = array (
 				array (
 						'url' => '/index.php',
 						'text' => 'Home',
@@ -17,5 +17,9 @@ $menu = array (
 						'text' => 'CSS Design',
 						'class' => 'css'
 						)
-			);
+			);*/
+			
 ?>
+<div>
+    <a href="index.php">Home</a> | <a href="index.php">Admin</a>
+</div>
