@@ -6,6 +6,7 @@
 	$db_name = 'c9';
 	$db_port = 3306;
 	$db = mysqli_connect($db_servername, $db_user1, '', $db_name, 3306);
+	$allow = '';
 	
 	//Test if connection occured.
 	if(mysqli_connect_errno()){
@@ -88,19 +89,15 @@
             </fieldset> 
              <?php
              if(isset($_POST['submit'])){
-             var_dump($_POST['pass']);
              
                 //3.use returned data if any
                 while($user = mysqli_fetch_assoc($result)){
                     //output data for each row
-                    var_dump($user);
-                    if($_POST['pass']=$user['password']){
-                        echo $post[user] . '<button><a href="home.php">GO</a></button>';
-                    }else{
-                        echo '<br><br>Not a user';
+                    if($_POST['pass']==$user['password']){
+                        $allow = 'true';
                     }
                 }
-                if($allow){
+                if($allow=='true'){
                     echo $post[user] . '<button><a href="home.php">GO</a></button>';
                 }else{
                         echo '<br><br>Not a user';
