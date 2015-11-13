@@ -1,6 +1,6 @@
 <?php
     // define menu using nested arrays:
-    include("navigation.php");
+    //include("navigation.php");
 ?>
 <html> 
     <head >

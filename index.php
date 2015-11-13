@@ -1,5 +1,53 @@
 <?php
-   // require_once('db_connection.php');
+//1.Create a database connection
+    $db_servername = '127.0.0.1';
+    $db_user1 = 'bigkbear';
+	$db_password = '';
+	$db_name = 'c9';
+	$db_port = 3306;
+	$db = mysqli_connect($db_servername, $db_user1, '', $db_name, 3306);
+	
+	//Test if connection occured.
+	if(mysqli_connect_errno()){
+	    die("db connect failed: " .
+	        mysqli_connect_error() .
+	        "(" . mysqli_connect_errno() .")"
+	    );
+	}
+	/*mysqli_query()
+	mysqli_fetch
+	
+	//best to use 
+	Working with retrieved data
+	my sqli_fetch_row
+	    -Results are in a standard array
+	    -Keys are integers
+	
+	//best to use 
+	mysqli_fetch_assoc
+	    -Results are in an associative array
+	    -Keys are column names
+	   
+	mysqli_fetch_array
+	    -Results in either or both types of arrays
+	    -MYSQL_NUM, MYSQL_ASSOC, MYSQL_BOTH
+	*/
+?>
+<?php
+    //2.Perform a query
+    $query = "SELECT * ";
+    //assemble a query
+    $query .= "FROM users";
+   // $query .= "WHERE role = 1";
+    //$query .= "ORDER BY role ASC";
+    //video 89 2;30
+    
+    $result = mysqli_query($db,$query);
+    //test if there was an error
+    if(!$result){
+        die("db query FAIL.");
+    }
+    
 ?>
 <html>
     <head>
@@ -27,7 +75,7 @@
         <div id="Sign-In" >
             <fieldset style="width:30%">
                 <legend align="center">LOG-IN HERE</legend>
-                <form method="POST" action="connectivity.php">
+                <form method="POST" action="index.php">
                     <br>
                     <input  placeholder="Username" id="" type="text" name="user" size="30">
                     <br>
@@ -38,8 +86,36 @@
                     <input id="button" type="submit" name="submit" value="Log-In">
                 </form>
             </fieldset> 
+             <?php
+             if(isset($_POST['submit'])){
+             var_dump($_POST['pass']);
+             
+                //3.use returned data if any
+                while($user = mysqli_fetch_assoc($result)){
+                    //output data for each row
+                    var_dump($user);
+                    if($_POST['pass']=$user['password']){
+                        echo $post[user] . '<button><a href="home.php">GO</a></button>';
+                    }else{
+                        echo '<br><br>Not a user';
+                    }
+                }
+                if($allow){
+                    echo $post[user] . '<button><a href="home.php">GO</a></button>';
+                }else{
+                        echo '<br><br>Not a user';
+                }
+             }
+             
+            ?>
         </div>
+      <?php
+            //4.Release the data
+            mysqli_free_result($result);
+        ?>
     </body>
 </html> 
-    
-    
+<?php
+    //5.Close db connection
+    mysqli_close($db);
+?>

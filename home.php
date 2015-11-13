@@ -1,6 +1,6 @@
 <?php
     require_once('app.php');
-    include('header.php');
+    include('layouts/header.php');
     $app = new Application($_POST);
 ?>
 Welcome to drive Safe
@@ -20,5 +20,5 @@ These are the rules on barbados roads:
     </li>
 </ul>
 <?php
-    include('footer.php');
+    include('layouts/footer.php');
 ?>
