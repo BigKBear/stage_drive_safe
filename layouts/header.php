@@ -1,4 +1,5 @@
 <?php
+    session_start();
     //Detect Mobile Browser
     $useragent=$_SERVER['HTTP_USER_AGENT'];
 

@@ -35,14 +35,13 @@
 ?>
 <?php
     //2.Perform a query
-    $query = "SELECT * ";
-    
+    /*$query = "SELECT * ";
     //assemble a query
     $query .= "FROM users";
-    
    // $query .= "WHERE role = 1";
-    
-    //$query .= "ORDER BY role ASC";
+    //$query .= "ORDER BY role ASC";*/
+    //video 89 2;30
+    $query = "";
     
     $result = mysqli_query($db,$query);
     //test if there was an error

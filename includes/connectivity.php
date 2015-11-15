@@ -33,7 +33,7 @@ class Database{
     	    //$conn = new PDO("mysql:host={self::$servername};dbname={self::$db_name", self::$user, self::$password);
     	    // set the PDO error mode to exception
     	    
-    	    $this->mysqli = new mysqli('127.0.0.1', 'bigkbear', '', 'c9', 3306);
+    	    $this->mysqli = new mysqli('127.0.0.', 'bigkbear', '', 'c9', 3306);
     	    //$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) 
         {
