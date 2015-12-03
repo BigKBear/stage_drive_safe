@@ -5,14 +5,16 @@
 class Database{
     //Define all the needed database properties
     private static $_instance;//use the variable with out instanctiating the class
-    private $conn;
+    private $db;
 	private $mysqli;
 	
-	private  $servername = '127.0.0.1';
-	private	$user1 = 'bigkbear';
-	private	$port = 3306;
-	private	$password = "";
-	private	$db_name = 'c9';
+    private $db_servername = '127.0.0.1';
+    private $db_user1 = 'bigkbear';
+	private $db_password = '';
+	private $db_name = 'c9';
+	private $db_port = 3306;
+	$this-> db = mysqli_connect($db_servername, $db_user1, '', $db_name, 3306);
+	
 	
 	//ensuring the Singleton class
 	static function getInstance(){
@@ -23,7 +25,6 @@ class Database{
     	    self::$_instance = new Database();
     	}
     	    return self::$_instance;
-    	
 	}
 
     //Defining all the Actions
@@ -106,5 +107,4 @@ class Database{
        
    }
 }
-
 ?>

@@ -17,5 +17,23 @@
                                 13=>'In the unfortunate event of an accident, call your car rental company immediately. Do not admit any liability. The emergency services numbers are: Police 211, Ambulance 511, Fire Service 311.');
             return $thearray;
         }
+        function getArrayFromImage(){
+            $imagenames = array(    0=>array(0=>'image_one.jpe',1=>'image_zero.jpe'),
+                                    1=>array(0=>'image_one.jpe',1=>'image_zero.jpe'),
+                                    2=>array(0=>'image_one.jpe',1=>'image_zero.jpe'),
+                                    3=>array(0=>'image_one.jpe',1=>'image_zero.jpe'),
+                                    4=>array(0=>'image_one.jpe',1=>'image_zero.jpe'),
+                                    5=>array(0=>'image_one.jpe',1=>'image_zero.jpe'),
+                                    6=>array(0=>'image_one.jpe',1=>'image_zero.jpe'),
+                                    7=>array(0=>'image_one.jpe',1=>'image_zero.jpe'),
+                                    8=>array(0=>'image_one.jpe',1=>'image_zero.jpe'),
+                                    9=>array(0=>'image_one.jpe',1=>'image_zero.jpe'),
+                                    10=>array(0=>'image_one.jpe',1=>'image_zero.jpe'),
+                                    11=>array(0=>'image_one.jpe',1=>'image_zero.jpe'),
+                                    12=>array(0=>'image_one.jpe',1=>'image_zero.jpe'),
+                                    13=>array(0=>'image_one.jpe',1=>'image_zero.jpe')
+                );
+                return $imagenames;
+        }
     }
 ?>
