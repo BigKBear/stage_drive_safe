@@ -3,7 +3,7 @@
     if(!isset($_SESSION['user'])){
         header('Location: https://safedrive-bigkbear.c9users.io/');
     }
-    $main_menu = array('Home','Admin','Logout');
+    $main_menu = array('Home','Admin', 'Fraud','Logout');
 ?>
 <html> 
     <head >
@@ -22,7 +22,8 @@
         <div>
             <a href="home.php"><?php echo $main_menu[0];?></a> |
             <?php if($_SESSION["role"]==3){?><a href="home.php"><?php echo $main_menu[1];?></a> |<?php }?>
-            <a href="index.php?logout=true"><?php echo $main_menu[2];?></a>
+            <a href="fraud/index.php"><?php echo $main_menu[2];?></a> |
+            <a href="index.php?logout=true"><?php echo $main_menu[3];?></a>
         </div>
         <?php
                 if(isset($_GET['logout'])==true){

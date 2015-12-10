@@ -1,7 +1,7 @@
 <?php
     session_start();
     require_once('app.php');
-    //require_once('styles/images');
+    //include ('styles/images');
     include('layouts/header.php');
     $app = new Application($_POST);
 ?>
@@ -17,8 +17,8 @@ These are the rules on barbados roads:
         <?php
             echo $app->getArrayFromRequest()[$i];
             //TODO::an array of images related to the current display tip item.
-            ?><br> <br><img src='<?php echo $app->getArrayFromImage()[$i][0];?>'/>
-              <img src='<?php echo $app->getArrayFromImage()[$i][1];?>'/><br>
+            ?><br> <br><img src='styles/images/<?php echo $app->getArrayFromImage()[$i][0];?>'/>
+              <img src='styles/images/<?php echo $app->getArrayFromImage()[$i][1];?>'/><br>
     </li>
     <?php
             }
