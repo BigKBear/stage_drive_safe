@@ -171,57 +171,53 @@
             ?>
         </div>
       <?php
-      /*$goarray = array(
+      $logged_in_user_permissions = array(
           'admin'=>array('agent','cs-supervisor','supervisor','admin'),
           'admin1'=>array('agent','cs-supervisor','admin'),
+          'admin2'=>array('agent','admin'),
           'pureadmin'=>array('admin'),
+          'pureadmin1'=>'admin',
           
-          'fakeadmin'=>array('supervisor_trying_to_be_admin'),
-          'cs-supervisor'=>array('agent','cs-supervisor'),
-          'supervisor'=>array('agent','cs-supervisor','supervisor'),
           
-          'agent'=>array('agent')
-          );*/
-      $goarray = array(
-          'admin'=>array('agent','cs-supervisor','supervisor','admin'),
-          'admin1'=>array('agent','cs-supervisor','admin'),
-          'pureadmin'=>array('admin'),
-          'cs-supervisor'=>array('agent','cs-supervisor'),
           'supervisor'=>array('agent','cs-supervisor','supervisor'),
-          'agent'=>array('agent')
+          'supervisor1'=>array('agent','supervisor'),
+          'puresupervisor'=>array('supervisor'),
+          'puresupervisor1'=>'supervisor',
+          
+          'cs-supervisor'=>array('agent','cs-supervisor'),
+          'purecs-supervisor'=>array('cs-supervisor'),
+          'purecs-supervisor1'=>'cs-supervisor',
+          
+          'agent'=>array('agent'),
+          'agent1'=>'agent'
           );
           $hardcodeadmin = 'admin';
           
-          echo '<b>Dario look below</b>';
-      echo '<br>pass role as admin and an array with an admin that only has admin access<br>';
-      echo only('admin',$goarray['pureadmin']);
-      
       echo 'pass role as admin and an array with an admin that has all privilages(agent, cs-supervisor, supervisor and admin)<br><br>';
-      echo only('admin',$goarray['admin']);
+      echo only('admin',$logged_in_user_permissions['admin']);
       
-      echo 'pass role as admin and an array with an admin that has all privilages(agent, cs-supervisor and admin)<br><br>';
-      echo only('admin',$goarray['admin1']);
+      echo 'pass role as admin and an array with an admin that has 3 privilages(agent, cs-supervisor and admin)<br><br>';
+      echo only('admin',$logged_in_user_permissions['admin1']);
+      
+      echo 'pass role as admin and an array with an admin that has 2 privilages(agent and admin)<br><br>';
+      echo only('admin',$logged_in_user_permissions['admin2']);
+      
+      echo '<br>pass role as admin and an array with an admin that only has admin access<br>';
+      echo only('admin',$logged_in_user_permissions['pureadmin']);
+      
+      echo '<br>pass role as admin and string admin for permissions access<br>';
+      echo only('admin',$logged_in_user_permissions['pureadmin1']);
       
       echo '<br><br>Hacked admin hardcoded the user as an admin only';
       echo only('admin',$hardcodeadmin);
       
-      function only($role, $goarray)
+      function only($role, $logged_in_user_permissions)
       {
-          //var_dump($goarray[0]);
-          /*if(is_array($goarray))
-          echo '<br>it is an array<br><br>';
-          
-          if (count($goarray) === 1)
-          echo 'array passed only has one value<br><br>';
-          
-          if(($goarray[0] == $role))
-          echo 'the one value in the array is the role you are checking for<br><br><br>';
-          */
-          if((is_array($goarray)) && (count($goarray) === 1)&&($goarray[0] === $role))
+          if((is_array($logged_in_user_permissions)) && (count($logged_in_user_permissions) === 1)&&($logged_in_user_permissions[0] === $role))
           {
              return('<h3>Yes</h3>');   
           }
-          if(is_string($goarray) && ($goarray==$role)){
+          if(is_string($logged_in_user_permissions) && ($logged_in_user_permissions==$role)){
             return('<h2>Yes hacked user</h2>');
           }
           else
